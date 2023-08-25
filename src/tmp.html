@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fading Navbar</title>
+    <link href="/dist/tailwind.css" rel="stylesheet">
+</head>
+<body class="h-screen bg-gradient-to-r from-slate-800 to-slate-700">
+    <!-- Horizontal Navbar -->
+    <div class="relative flex h-[13%] w-full flex-1 shadow-md border border-slate-900 bg-gradient-to-l from-slate-800 to-slate-700">
+      <button
+        class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 w-10  -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-white opacity-100 shadow-md sm:hidden"
+        type="button"
+        id="menuButton"
+      >
+        ☰
+      </button>
+    </div>
+    
+    <!-- Vertical Navbar -->
+    <div
+      class="hidden h-[25%] w-full bg-gradient-to-t my-2 opacity-40 from-slate-700 to-slate-600 sm:hidden shadow-md border border-slate-800 rounded-lg"
+      id="navbarCollapse"
+    ></div>
+
+    <!-- Main container -->
+    <div class="flex h-[85%] gap-3 text-cyan-50">
+      <!-- Vertical Navbar -->
+      <div
+        class="sticky top-0 hidden w-1/4 rounded-r-lg shadow-lg border border-slate-900 sm:block mt-3"
+      >
+        <div class="p-5">Navegador</div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="flex w-full flex-1 overflow-hidden shadow-lg border border-slate-900 mt-3 rounded-l-lg sm:w-2/3"
+      >
+        <div class="flex-1 overflow-y-scroll p-5">
+          <!-- ...rest of your content... -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div
+        class="flex h-52 w-full flex-1 mt-3 border rounded-t-lg border-slate-900 bg-gradient-to-l from-slate-800 to-slate-700"
+      ></div>
+    </footer>
+</body>
+</html>
