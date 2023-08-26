@@ -6,18 +6,17 @@
     <title>BlueCode</title>
 
     <!-- Links app-->
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="/dist/tailwind.css" />
     <link rel="stylesheet" href="assets/css/custom-scroll.css" />
   </head>
   <body class="h-screen bg-gradient-to-r from-slate-800 to-slate-700">
-    
     <!-- Horizontal Navbar -->
     <div
       class="justify-left relative flex h-[13%] w-full flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
     >
       <button
-        class="toggle-button absolute right-0 max-h-full text-base top-1/2 mx-5 ml-4 w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-white opacity-100 shadow-md sm:hidden"
+        class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 max-h-fit min-h-fit w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md sm:hidden"
         type="button"
         id="menuButton"
       >
@@ -26,17 +25,20 @@
 
       <!-- Logo -->
       <div
-        class="flex items-center max-h-full rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 mx-3 shadow-md"
+        class="mx-3 flex max-h-full min-h-fit items-center rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 shadow-md"
       >
-        <a href="index.html" class="block max-h-fit h-16 px-2 items-center">
+        <a
+          href="index.html"
+          class="block h-16 max-h-fit min-h-fit items-center px-2"
+        >
           <img
             src="assets/media/img/blue_code_figure_white.png"
             alt="blue-code-logo"
-            class="h-full w-auto max-w-full max-h-fit"
+            class="h-full max-h-fit min-h-fit w-auto object-contain"
           />
         </a>
 
-        <h1 class="text-xl font-medium text-white pr-3 sm:font-semibold">
+        <h1 class="pr-3 text-sm text-white sm:text-xl sm:font-semibold">
           Blue Code
         </h1>
       </div>
@@ -50,11 +52,15 @@
 
     <!-- Main container -->
     <div class="flex h-[85%] gap-3 text-cyan-50">
+      
       <!-- Vertical Navbar -->
       <div
         class="sticky top-0 mt-3 hidden w-1/4 rounded-r-lg border border-slate-800 shadow-lg sm:block"
       >
-        <div class="p-5">Navegador</div>
+        <div class="p-5">
+          <button class="load-button" data-content="about">About us</button>
+          <button class="load-button" data-content="contact">Contact</button>
+        </div>
       </div>
 
       <!-- Content -->
@@ -62,6 +68,9 @@
         class="mt-3 flex w-full flex-1 overflow-hidden rounded-l-lg border border-slate-800 shadow-lg sm:w-2/3"
       >
         <div class="flex-1 overflow-y-scroll p-5">
+          <!-- Dinamic Content -->
+          <div id="page-content"></div>
+
           <h1 class="p-5">Hola</h1>
           <h1 class="p-5">Hola</h1>
           <h1 class="p-5">Hola</h1>
@@ -87,6 +96,10 @@
       ></div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="assets/js/navbar-collapse.js"></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
