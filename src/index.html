@@ -10,21 +10,40 @@
     <link rel="stylesheet" href="assets/css/custom-scroll.css" />
   </head>
   <body class="h-screen bg-gradient-to-r from-slate-800 to-slate-700">
+    
     <!-- Horizontal Navbar -->
     <div
-      class="relative flex h-[13%] w-full flex-1 border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
+      class="justify-left relative flex h-[13%] w-full flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
     >
       <button
-        class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-white opacity-100 shadow-md sm:hidden"
+        class="toggle-button absolute right-0 max-h-full text-base top-1/2 mx-5 ml-4 w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-white opacity-100 shadow-md sm:hidden"
         type="button"
         id="menuButton"
       >
         ☰
       </button>
+
+      <!-- Logo -->
+      <div
+        class="flex items-center max-h-full rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 px-3 shadow-md"
+      >
+        <a href="index.html" class="mx-3 block max-h-fit h-16 items-center">
+          <img
+            src="assets/media/img/blue_code_figure_white.png"
+            alt="blue-code-logo"
+            class="h-full w-auto max-w-full max-h-fit"
+          />
+        </a>
+
+        <h1 class="text-xl font-medium text-white sm:font-semibold">
+          Blue Code
+        </h1>
+      </div>
     </div>
 
+    <!-- Horizontal Content Navbar-->
     <div
-      class="my-2 hidden h-[25%] w-full rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md sm:hidden"
+      class="mt-2 hidden h-[25%] w-full rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md sm:hidden"
       id="navbarCollapse"
     ></div>
 
