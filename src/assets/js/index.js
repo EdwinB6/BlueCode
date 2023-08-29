@@ -1,18 +1,40 @@
 $(document).ready(function() {
     $(".load-button").click(function() {
-      var content = $(this).data("content");
+      const content = $(this).data("content");
       loadContent(content);
     });
 
     function loadContent(contentType) {
-      var contentURL = "";
+      let contentURL = "";
+      let idContent = "";
 
       switch (contentType) {
+        case "home":
+          window.location.href = "index.html";
+          break;
+
         case "about":
+          idContent = "about-us";
           contentURL = "pages/about.html";
           break;
+
+        case "mission":
+          idContent = "mission";
+          contentURL = "pages/about.html"
+          break;
+
+        case "vision":
+          idContent = "vision";
+          break;
+
+        case "politics":
+          break;
+
         case "contact":
           contentURL = "pages/contact.html";
+          break;
+
+        case "our-services":
           break;
 
         default:
@@ -20,7 +42,14 @@ $(document).ready(function() {
       }
 
       if (contentURL !== "") {
-        $("#page-content").load(contentURL);
+        $("#page-content").load(contentURL, function() {
+          if (idContent !== "") {
+            $('#page-content').animate({
+              scrollTop: $(`#${idContent}`).offset().top - $('#page-content').offset().top + $('#page-content').scrollTop()
+            }, 'slow');
+          }
+        });
       }
+      
     }
 });
