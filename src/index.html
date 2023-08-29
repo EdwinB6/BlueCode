@@ -46,107 +46,33 @@
 
     <!-- Horizontal Content Navbar-->
     <div
-      class="mt-2 hidden h-[25%] w-full rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md sm:hidden"
+      class="mt-2 flex h-[25%] w-full items-center rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md sm:hidden"
       id="navbarCollapse"
-    ></div>
+    >
+      <div class="grid grid-cols-3 gap-2 m-2 justify-center w-full overflow-auto"></div> 
+    </div>
 
     <!-- Main container -->
     <div class="flex h-[85%] gap-3 text-cyan-50">
       <!-- Vertical Navbar -->
       <div
-        class="sticky top-0 mt-3 hidden w-1/4 rounded-r-lg border border-slate-800 shadow-lg sm:block"
+        class="top-0 mt-3 hidden w-1/4 overflow-y-auto rounded-r-lg border border-slate-800 shadow-lg sm:block content relative"
       >
         <table class="mx-auto my-3 w-full min-w-fit table-auto text-center">
-          <tbody>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="home"
-                >
-                  Home
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="about"
-                >
-                  About us
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="mission"
-                >
-                  Mission
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="vission"
-                >
-                  Vission
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="politics"
-                >
-                  Politics
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="contact"
-                >
-                  Contact
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  class="load-button my-2 w-9/12 rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
-                  type="button"
-                  data-content="our-services"
-                >
-                  Our services
-                </button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="navbarVertical"></tbody>
         </table>
+        <div class="bg-slate-800 p-2 bottom-0 w-full sticky top-full text-center shadow-md border border-slate-800 text-sm font-light italic">
+          <p>In development by</p>
+          <a href="https://github.com/EdwinB5">@EdwinB5</a>
+        </div>
       </div>
 
       <!-- Content -->
       <div
         class="mt-3 flex w-full flex-1 overflow-hidden rounded-l-lg border border-slate-800 shadow-lg sm:w-2/3"
       >
-      <!-- Dinamic Content -->
+        <!-- Dinamic Content -->
         <div class="flex-1 overflow-y-scroll p-5" id="page-content">
-          
-
           <h1 class="p-5">Hola</h1>
           <h1 class="p-5">Hola</h1>
           <h1 class="p-5">Hola</h1>
