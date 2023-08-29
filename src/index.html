@@ -46,22 +46,26 @@
 
     <!-- Horizontal Content Navbar-->
     <div
-      class="mt-2 flex h-[25%] w-full items-center rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md sm:hidden"
+      class="mt-2 hidden h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
       id="navbarCollapse"
     >
-      <div class="grid grid-cols-3 gap-2 m-2 justify-center w-full overflow-auto"></div> 
+      <div
+        class="mx-0 grid w-full grid-cols-3 m-2 justify-center gap-2"
+      ></div>
     </div>
 
     <!-- Main container -->
     <div class="flex h-[85%] gap-3 text-cyan-50">
       <!-- Vertical Navbar -->
       <div
-        class="top-0 mt-3 hidden w-1/4 overflow-y-auto rounded-r-lg border border-slate-800 shadow-lg sm:block content relative"
+        class="content relative top-0 mt-3 hidden w-1/4 overflow-y-auto rounded-r-lg border border-slate-800 shadow-lg sm:block"
       >
         <table class="mx-auto my-3 w-full min-w-fit table-auto text-center">
           <tbody id="navbarVertical"></tbody>
         </table>
-        <div class="bg-slate-800 p-2 bottom-0 w-full sticky top-full text-center shadow-md border border-slate-800 text-sm font-light italic">
+        <div
+          class="sticky bottom-0 top-full w-full border border-slate-800 bg-slate-800 p-2 text-center text-sm font-light italic shadow-md"
+        >
           <p>In development by</p>
           <a href="https://github.com/EdwinB5">@EdwinB5</a>
         </div>
@@ -72,21 +76,38 @@
         class="mt-3 flex w-full flex-1 overflow-hidden rounded-l-lg border border-slate-800 shadow-lg sm:w-2/3"
       >
         <!-- Dinamic Content -->
-        <div class="flex-1 overflow-y-scroll p-5" id="page-content">
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
-          <h1 class="p-5">Hola</h1>
+        <div class="flex-1 overflow-y-scroll p-5 relative" id="page-content">
+          <!-- Preloader -->
+          <div id="preloader" class="flex items-center justify-center bg-opacity-70 z-50 absolute inset-0">
+            <div class="animate-spin rounded-full border-t-4 border-slate-600 h-12 w-12"></div>
+          </div>
+          <!-- Home Content -->
+          <div class="font-bold text-right italic text-sm opacity-35 w-full pb-3 hidden" id="home-content">
+            <h1>Blue Code - Moving ideas</h1>
+          </div>
+          <div
+            class="mx-auto overflow-auto rounded-lg bg-slate-800 pt-5 shadow-lg hidden"
+            id="console-home"
+          >
+            <pre class="m-0 p-0 font-mono text-white">
+  <span class="text-green-500">user@linux:</span><span class="text-blue-500">~$</span> <span class="cursor-blink">_</span> cat sum.py
+  <span class="text-yellow-500">File content sum.py:</span>
+  <code class="block text-gray-300 px-4">
+    def sum(a, b):
+        return a + b
+
+    if __name__ == "__main__":
+        result = sum(5, 3)
+        print("Created by Daniel Padilla & Edwin Becerra")
+        print(f"The sum of {num1} and {num2} is: {result}")
+  </code>
+  <span class="text-green-500">user@linux:</span><span class="text-blue-500">~$</span> <span class="cursor-blink">_</span> python sum.py
+  <span class="text-yellow-500">Created by Daniel Padilla & Edwin Becerra</span>
+  <span class="text-yellow-500">The sum of 5 and 3 is: 8</span>
+  <span class="text-green-500">user@linux:</span><span class="text-blue-500">~$</span> <span class="cursor-blink">_</span> exit
+  <span class="text-green-500">user@linux:</span><span class="text-blue-500">~$</span> <span class="cursor-blink-end"></span> 
+            </pre>
+          </div>
         </div>
       </div>
     </div>
@@ -100,8 +121,6 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script src="assets/js/navbar-collapse.js"></script>
     <script src="assets/js/index.js"></script>
   </body>
 </html>
