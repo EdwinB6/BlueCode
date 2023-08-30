@@ -105,8 +105,9 @@ function loadContent(contentType) {
   } else if (url) {
     $("#page-content").load(url, function () {
       if (scrollId) {
-        const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop();
+        const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop() - 24;
         $("#page-content").animate({ scrollTop: targetOffset }, "slow");
+        console.log(targetOffset);
       }
     });
   }  
@@ -179,10 +180,11 @@ $(document).ready(function () {
   /**
    * In Development page
    */
-  $("#page-content").load("pages/about.html", function () {
-    if (scrollId) {
-      const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop();
-      $("#page-content").animate({ scrollTop: targetOffset }, "slow");
-    }
-  });
+  
+  // $("#page-content").load("pages/about.html", function () {
+  //   if (true) {
+  //     const targetOffset = $(`#vision`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop() - 24;
+  //     $("#page-content").animate({ scrollTop: targetOffset }, "slow");
+  //   }
+  // });
 });
