@@ -1,5 +1,6 @@
 const navbarCollapse = "#navbarCollapse";
 let isContainerOpen = false;
+
 const navigationButtons = [
   { content: "home", label: "Home" },
   { content: "about", label: "About us" },
@@ -87,58 +88,28 @@ function createButtonGrid(button) {
  * @param contentType - It comes from the data-content tag.
  */
 function loadContent(contentType) {
-  let contentURL = "";
-  let idContent = "";
+  const contentMapping = {
+    home: { url: "index.html", scrollId: null },
+    about: { url: "pages/about.html", scrollId: "about-us" },
+    mission: { url: "pages/about.html", scrollId: "mission" },
+    vision: { url: "pages/about.html", scrollId: "vision" },
+    politics: { url: "pages/politics.html", scrollId: null },
+    contact: { url: "pages/contact.html", scrollId: null },
+    "our-services": { url: "pages/our-services.html", scrollId: null },
+  };
 
-  switch (contentType) {
-    case "home":
-      window.location.href = "index.html";
-      break;
+  const { url, scrollId } = contentMapping[contentType] || {};
 
-    case "about":
-      idContent = "about-us";
-      contentURL = "pages/about.html";
-      break;
-
-    case "mission":
-      idContent = "mission";
-      contentURL = "pages/about.html";
-      break;
-
-    case "vision":
-      idContent = "vision";
-      contentURL = "pages/about.html";
-      break;
-
-    case "politics":
-      break;
-
-    case "contact":
-      contentURL = "pages/contact.html";
-      break;
-
-    case "our-services":
-      break;
-
-    default:
-      break;
-  }
-
-  if (contentURL !== "") {
-    $("#page-content").load(contentURL, function () {
-      if (idContent !== "") {
-        $("#page-content").animate(
-          {
-            scrollTop:
-              $(`#${idContent}`).offset().top -
-              $("#page-content").offset().top +
-              $("#page-content").scrollTop(),
-          },
-          "slow",
-        );
+  if (url === "index.html") {
+    window.location.href = "index.html";
+  } else if (url) {
+    $("#page-content").load(url, function () {
+      if (scrollId) {
+        const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop();
+        $("#page-content").animate({ scrollTop: targetOffset }, "slow");
       }
     });
-  }
+  }  
 }
 
 /**
@@ -189,7 +160,7 @@ $(document).ready(function () {
   });
 
   /** Function calls */
-  preLoadContent("#preloader", "#home-content, #console-home", "slow", 2000);
+  preLoadContent("#preloader", "#home-content", "slow", 500);
   blinkCursor();
 
   /**
@@ -204,4 +175,14 @@ $(document).ready(function () {
    * Event observer on resize
    */
   $(window).on("resize", updateContainerVisibility);
+
+  /**
+   * In Development page
+   */
+  $("#page-content").load("pages/about.html", function () {
+    if (scrollId) {
+      const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop();
+      $("#page-content").animate({ scrollTop: targetOffset }, "slow");
+    }
+  });
 });
