@@ -7,7 +7,7 @@ const navigationButtons = [
   { content: "mission", label: "Mission" },
   { content: "vision", label: "Vision" },
   { content: "politics", label: "Politics" },
-  { content: "contact", label: "Contact" },
+  { content: "contact", label: "Contact us" },
   { content: "our-services", label: "Our services" },
 ];
 
