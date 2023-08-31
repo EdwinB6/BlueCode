@@ -105,9 +105,8 @@ function loadContent(contentType) {
   } else if (url) {
     $("#page-content").load(url, function () {
       if (scrollId) {
-        const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop() - 24;
+        const targetOffset = $(`#${scrollId}`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop();
         $("#page-content").animate({ scrollTop: targetOffset }, "slow");
-        console.log(targetOffset);
       }
     });
   }  
@@ -152,6 +151,11 @@ $(document).ready(function () {
     buttonsContainer.append(buttonElement);
   });
 
+  /** Loading console content from pre tag */
+  $("#console-home").load("pages/console.html", function() {
+    blinkCursor();
+  });
+
   /**
    * Button that triggers the function to dynamically load external HTML
    */
@@ -162,8 +166,7 @@ $(document).ready(function () {
 
   /** Function calls */
   preLoadContent("#preloader", "#home-content", "slow", 500);
-  blinkCursor();
-
+ 
   /**
    * Button that triggers the funcion to horizontal menu content
    */
@@ -181,10 +184,10 @@ $(document).ready(function () {
    * In Development page
    */
   
-  // $("#page-content").load("pages/about.html", function () {
-  //   if (true) {
-  //     const targetOffset = $(`#vision`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop() - 24;
-  //     $("#page-content").animate({ scrollTop: targetOffset }, "slow");
-  //   }
-  // });
+//  $("#page-content").load("pages/about.html", function () {
+//    if (true) {
+//      const targetOffset = $(`#about-us`).offset().top - $("#page-content").offset().top + $("#page-content").scrollTop() - 24;
+//      $("#page-content").animate({ scrollTop: targetOffset }, "slow");
+//    }
+//  });
 });
