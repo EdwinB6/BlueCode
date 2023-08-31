@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/public/**/*.{html,js}"],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
@@ -999,5 +999,8 @@ module.exports = {
       50: '50',
     },
   },
-  plugins: [],
+  plugins: [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
 };

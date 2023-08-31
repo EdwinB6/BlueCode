@@ -1,3 +1,0 @@
-Command to run tailwind developer environment
-
--- npx tailwindcss -i ./src/assets/css/styles.css -o ./dist/tailwind.css --watch
