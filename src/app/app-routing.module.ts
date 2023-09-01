@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './modules/home/home.component';
-import { AboutComponent } from './modules/about/about.component';
-import { PoliticsComponent } from './modules/politics/politics.component';
-import { OurServicesComponent } from './modules/our-services/our-services.component';
-import { CustomErrorComponent } from './modules/custom-error/custom-error.component';
-import { ContactComponent } from './modules/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { PoliticsComponent } from './pages/politics/politics.component';
+import { OurServicesComponent } from './pages/our-services/our-services.component';
+import { CustomErrorComponent } from './pages/custom-error/custom-error.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

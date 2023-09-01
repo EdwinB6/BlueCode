@@ -33,7 +33,7 @@ export class AboutComponent {
       const container = this.aboutContainer.nativeElement;
       const elementTop = element.offsetTop - container.offsetTop;
 
-      //TODO Fix Scroll To
+      //TODO Fix Scroll To and Small devices About view
       container.scrollTo({
         top: elementTop,
         behavior: 'auto'
