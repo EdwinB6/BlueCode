@@ -1,0 +1,40 @@
+src/
+|-- app/
+|   |-- core/
+|   |   |-- services/       // Global services (interceptors, authentication, etc.)
+|   |   |-- guards/         // Routing guards
+|   |   |-- models/         // Shared models and interfaces
+|   |   |-- core.module.ts  // Core module
+|   |
+|   |-- shared/
+|   |   |-- components/     // Shared components (buttons, headers, etc.)
+|   |   |-- directives/     // Shared directives
+|   |   |-- pipes/          // Shared pipes
+|   |   |-- shared.module.ts// Shared module
+|   |
+|   |-- modules/
+|   |   |-- home/
+|   |   |   |-- components/ // Module-specific components
+|   |   |   |-- home.module.ts // "Home" module
+|   |   |
+|   |   |-- about/
+|   |   |   |-- components/ // Module-specific components
+|   |   |   |-- about.module.ts // "About" module
+|   |   |
+|   |   |-- contact/
+|   |   |   |-- components/ // Module-specific components
+|   |   |   |-- contact.module.ts // "Contact" module
+|   |   |
+|   |   |-- services/
+|   |   |   |-- services.module.ts // Module for specific services
+|   |
+|   |-- app-routing.module.ts // Main routing configuration
+|   |-- app.component.ts     // Main component
+|   |-- app.module.ts        // Main module
+|
+|-- assets/                  // Static assets (images, files, etc.)
+|-- environments/            // Environment variables for different environments (dev, prod, etc.)
+|
+|-- main.ts                  // Application entry point
+|-- index.html               // Main HTML page
+|-- styles.scss              // Main styles file

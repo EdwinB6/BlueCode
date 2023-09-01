@@ -1,0 +1,9 @@
+<div class="flex justify-center items-center">
+  <a
+    class="load-button block w-11/12 rounded-lg text-center bg-slate-700 p-2 text-base text-white opacity-100 shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-600"
+    [routerLink]="button.link"
+    [attr.fragment]="button.section ? button.section : null"
+  >
+    {{ button.label }}
+  </a>
+</div>
