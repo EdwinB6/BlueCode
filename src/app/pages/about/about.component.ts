@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, delay } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -11,7 +10,6 @@ export class AboutComponent {
   @ViewChild('aboutContainer') aboutContainer!: ElementRef;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute
   ) {}
 
