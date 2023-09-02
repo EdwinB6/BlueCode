@@ -8,14 +8,14 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  @ViewChild('aboutContainer') aboutContainer!: ElementRef;
+  @ViewChild('aboutContainer', { static: true }) aboutContainer!: ElementRef;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -33,10 +33,9 @@ export class AboutComponent {
       const container = this.aboutContainer.nativeElement;
       const elementTop = element.offsetTop - container.offsetTop;
 
-      //TODO Fix Scroll To and Small devices About view
       container.scrollTo({
         top: elementTop,
-        behavior: 'auto'
+        behavior: 'smooth'
       });
     }
   }

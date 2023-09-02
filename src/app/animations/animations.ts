@@ -17,11 +17,11 @@ export const SlideInOutAnimation = [
             'max-height': '500px', 'opacity': '1', 'visibility': 'visible'
         })),
         state('hidden', style({
-            'max-height': '0px', 'opacity': '0', 'visibility': 'hidden'
+            'max-height': '0px', 'opacity': '1', 'visibility': 'hidden'
         })),
         transition('visible => hidden', [group([
             animate('400ms ease-in-out', style({
-                'opacity': '0'
+                'opacity': '1'
             })),
             animate('600ms ease-in-out', style({
                 'max-height': '0px'
