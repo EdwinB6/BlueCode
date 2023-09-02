@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  @ViewChild('aboutContainer', { static: true }) aboutContainer!: ElementRef;
+  @ViewChild('aboutContainer') aboutContainer!: ElementRef;
 
   constructor(
     private router: Router,
@@ -16,14 +16,10 @@ export class AboutComponent {
   ) {}
 
   ngOnInit(): void {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.route.fragment.subscribe(fragment => {
-        if (fragment) {
-          this.scrollToFragment(fragment);
-        }
-      });
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        setTimeout(() => this.scrollToFragment(fragment), 350);
+      }
     });
   }
 
