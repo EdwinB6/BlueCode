@@ -43,7 +43,10 @@
   }"
 >
   <div class="m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2">
-    <app-button-grid *ngFor="let button of navigationButtons" [button]="button"></app-button-grid>
+    <app-button-grid
+      *ngFor="let button of navigationButtons"
+      [button]="button"
+    ></app-button-grid>
   </div>
 </div>
 
@@ -70,9 +73,9 @@
     </div>
   </div>
   <div
-    class="mt-3 flex w-full flex-1 overflow-hidden rounded-l-lg border border-slate-800 shadow-lg sm:w-2/3"
+    class="mt-3 w-full flex flex-1 overflow-hidden rounded-l-lg border border-slate-800 shadow-lg"
   >
-    <div class="relative flex-1 overflow-y-scroll">
+    <div class="overflow-hidden overflow-y-auto w-full h-full">
       <!-- Router working-->
       <router-outlet></router-outlet>
     </div>
