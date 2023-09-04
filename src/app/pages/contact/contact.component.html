@@ -1,2 +1,101 @@
-<p>Correo Electrónico: info.code@bluecode.com</p>
-<p>Sitio Web: www.bluecodetech.com</p>
+<div class="h-full w-full px-10" id="contact-us">
+  <h2 class="p-5 text-center text-2xl font-semibold">Contact us</h2>
+  <div class="rounded-md bg-slate-700 p-10 shadow-md">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div
+          class="group relative z-0 mb-6 w-full"
+          *ngFor="let contactInput of contactInputs"
+        >
+          <input
+            [type]="contactInput.type"
+            [name]="contactInput.name"
+            class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
+            [placeholder]="contactInput.placeholder"
+            [id]="contactInput.id"
+            [formControlName]="contactInput.formControl"
+          />
+          <label
+            for="floating_name"
+            [htmlFor]="contactInput.name"
+            class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+            >{{ contactInput.label }}</label
+          >
+          <!-- Form errors -->
+          <div
+            *ngIf="
+              contactForm.get(contactInput.formControl)?.invalid &&
+              (contactForm.get(contactInput.formControl)?.dirty ||
+                contactForm.get(contactInput.formControl)?.touched)
+            "
+            class="text-xs text-red-500 opacity-50"
+          >
+            * {{contactInput.id | titlecase}} must have a value
+          </div>
+        </div>
+
+        <div class="relative">
+          <label for="options" class="text-xs opacity-50"
+            >Select an option</label
+          >
+          <select
+            id="options"
+            formControlName="options"
+            class="block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-50 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          >
+            <option value="general-inquiry">General Inquiry</option>
+            <option value="technical-support">Technical Support</option>
+            <option value="comments-suggestions">
+              Comments and Suggestions
+            </option>
+            <option value="quotation-request">Quotation Request</option>
+            <option value="job-application">Job Application</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="relative">
+          <label for="availability" class="text-xs opacity-50"
+            >Select availability</label
+          >
+          <select
+            id="availability"
+            formControlName="availability"
+            class="peer block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-50 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          >
+            <option value="monday-friday">Monday to Friday</option>
+            <option value="weekends">Weekends</option>
+            <option value="anytime">Anytime</option>
+          </select>
+        </div>
+
+        <div class="relative">
+          <label for="availability" class="text-xs opacity-50"
+            >Select a priority</label
+          >
+          <select
+            id="priority"
+            formControlName="priority"
+            class="block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-50 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+          >
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+      </div>
+      <div class="w-full pt-10 text-center">
+        <button
+          type="submit"
+          value="Submit"
+          class="w-32 rounded-md bg-slate-800 p-3 text-sm opacity-80 shadow-md"
+          [disabled]="!contactForm.valid"
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
+  <p>Correo Electrónico: info.code@bluecode.com</p>
+  <p>Sitio Web: www.bluecodetech.com</p>
+</div>

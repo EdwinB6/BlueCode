@@ -12,7 +12,7 @@ import { CustomErrorComponent } from './pages/custom-error/custom-error.componen
 import { ContactComponent } from './pages/contact/contact.component';
 import { ButtonGridComponent } from './shared/components/button-grid/button-grid.component';
 import { ButtonTableComponent } from './shared/components/button-table/button-table.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive';
 
 @NgModule({
@@ -33,6 +33,7 @@ import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
