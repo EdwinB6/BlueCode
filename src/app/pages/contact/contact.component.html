@@ -5,10 +5,10 @@
     <img
       src="assets/images/backgrounds/contact-us.jpg"
       alt="contact-us"
-      class="h-full w-full rounded-sm object-cover opacity-50 shadow-md"
+      class="h-full w-full rounded-sm object-cover opacity-70 shadow-md"
     />
-    <div class="absolute bottom-0 right-0 bg-opacity-50 p-2 text-white">
-      <span class="text-xs italic opacity-50"
+    <div class="absolute bottom-0 right-0 bg-opacity-70 p-2 text-white">
+      <span class="text-xs italic opacity-70"
         >By
         <a
           href="https://www.freepik.es/vector-gratis/fondo-moderno-azul-clasico-abstracto_6764476.htm#query=svg%20backgrounds&position=19&from_view=keyword&track=ais"
@@ -47,20 +47,20 @@
               (contactForm.get(contactInput.formControl)?.dirty ||
                 contactForm.get(contactInput.formControl)?.touched)
             "
-            class="text-xs text-red-500 opacity-50"
+            class="text-xs text-red-500 opacity-70"
           >
             * {{ contactInput.id | titlecase }} must have a value
           </div>
         </div>
 
         <div class="relative">
-          <label for="options" class="text-xs opacity-50"
+          <label for="options" class="text-xs opacity-70"
             >Select an option</label
           >
           <select
             id="options"
             formControlName="options"
-            class="block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-50 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            class="block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-70 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           >
             <option value="general-inquiry">General Inquiry</option>
             <option value="technical-support">Technical Support</option>
@@ -74,13 +74,13 @@
         </div>
 
         <div class="relative">
-          <label for="availability" class="text-xs opacity-50"
+          <label for="availability" class="text-xs opacity-70"
             >Select availability</label
           >
           <select
             id="availability"
             formControlName="availability"
-            class="peer block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-50 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            class="peer block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-70 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           >
             <option value="monday-friday">Monday to Friday</option>
             <option value="weekends">Weekends</option>
@@ -89,13 +89,13 @@
         </div>
 
         <div class="relative">
-          <label for="availability" class="text-xs opacity-50"
+          <label for="availability" class="text-xs opacity-70"
             >Select a priority</label
           >
           <select
             id="priority"
             formControlName="priority"
-            class="block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-50 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            class="block w-full appearance-none rounded-lg border-0 border-b-2 border-gray-300 bg-transparent p-2.5 px-0 py-2.5 text-sm text-white text-opacity-70 focus:border-blue-600 focus:outline-none focus:ring-0 focus:ring-blue-500 dark:border-gray-600 dark:bg-slate-700 dark:focus:border-blue-500 dark:focus:ring-blue-500"
           >
             <option value="high">High</option>
             <option value="medium">Medium</option>
@@ -107,7 +107,7 @@
         <button
           type="submit"
           value="Submit"
-          class="w-32 rounded-md bg-slate-800 p-3 text-sm opacity-60 shadow-md hover:scale-105 hover:opacity-40 transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
+          class="w-32 rounded-md bg-slate-800 p-3 text-sm opacity-70 shadow-md hover:scale-105 hover:opacity-50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
           [disabled]="!contactForm.valid"
           (mouseenter)="onTest()"
         >
@@ -121,13 +121,13 @@
     <img
       src="assets/images/backgrounds/contact-us.jpg"
       alt="contact-us"
-      class="h-full w-full rounded-sm object-cover opacity-50 shadow-md"
+      class="h-full w-full rounded-sm object-cover opacity-70 shadow-md"
     />
-    <div class="absolute bg-opacity-50 p-2 text-white text-center ">
-      <h3 class="text-lg opacity-60 mb-1">Contact us through alternative channels</h3>
-      <span class="text-xs italic opacity-50">
-        <p>Correo Electrónico: info.code@bluecode.com</p>
-        <p>Sitio Web: www.bluecodetech.com</p>
+    <div class="absolute bg-opacity-70 p-2 text-white text-center ">
+      <h3 class="text-lg opacity-80 mb-1">Contact us through alternative channels</h3>
+      <span class="text-xs italic opacity-70">
+        <p>Email: info.code@bluecode.com</p>
+        <p>Website: www.bluecodetech.com</p>
       </span>
     </div>
   </div>
