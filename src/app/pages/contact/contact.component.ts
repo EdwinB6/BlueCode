@@ -47,8 +47,11 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      console.log(`Formulario enviado ${this.contactForm.value}`);
+      console.log(`Formulario enviado ${JSON.stringify(this.contactForm.value, null, 2)}`);
     }
-    console.log("Hello");
+  }
+
+  onTest(): void {
+    console.log('Prueba');
   }
 }

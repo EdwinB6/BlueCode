@@ -1,6 +1,25 @@
 <div class="h-full w-full px-10" id="contact-us">
   <h2 class="p-5 text-center text-2xl font-semibold">Contact us</h2>
+  <!-- Image at top content -->
+  <div class="relative mx-auto mb-5 h-[20%] w-full">
+    <img
+      src="assets/images/backgrounds/contact-us.jpg"
+      alt="contact-us"
+      class="h-full w-full rounded-sm object-cover opacity-50 shadow-md"
+    />
+    <div class="absolute bottom-0 right-0 bg-opacity-50 p-2 text-white">
+      <span class="text-xs italic opacity-50"
+        >By
+        <a
+          href="https://www.freepik.es/vector-gratis/fondo-moderno-azul-clasico-abstracto_6764476.htm#query=svg%20backgrounds&position=19&from_view=keyword&track=ais"
+          >Freepik</a
+        ></span
+      >
+    </div>
+  </div>
+
   <div class="rounded-md bg-slate-700 p-10 shadow-md">
+    <!-- Contact form -->
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div
@@ -30,7 +49,7 @@
             "
             class="text-xs text-red-500 opacity-50"
           >
-            * {{contactInput.id | titlecase}} must have a value
+            * {{ contactInput.id | titlecase }} must have a value
           </div>
         </div>
 
@@ -88,14 +107,29 @@
         <button
           type="submit"
           value="Submit"
-          class="w-32 rounded-md bg-slate-800 p-3 text-sm opacity-80 shadow-md"
+          class="w-32 rounded-md bg-slate-800 p-3 text-sm opacity-60 shadow-md hover:scale-105 hover:opacity-40 transition delay-150 duration-300 ease-in-out hover:-translate-y-1"
           [disabled]="!contactForm.valid"
+          (mouseenter)="onTest()"
         >
           Send
         </button>
       </div>
     </form>
   </div>
-  <p>Correo Electrónico: info.code@bluecode.com</p>
-  <p>Sitio Web: www.bluecodetech.com</p>
+  <!-- Image at the end of the content -->
+  <div class="relative mx-auto mt-5 h-[20%] w-full flex flex-col items-center justify-center">
+    <img
+      src="assets/images/backgrounds/contact-us.jpg"
+      alt="contact-us"
+      class="h-full w-full rounded-sm object-cover opacity-50 shadow-md"
+    />
+    <div class="absolute bg-opacity-50 p-2 text-white text-center ">
+      <h3 class="text-lg opacity-60 mb-1">Contact us through alternative channels</h3>
+      <span class="text-xs italic opacity-50">
+        <p>Correo Electrónico: info.code@bluecode.com</p>
+        <p>Sitio Web: www.bluecodetech.com</p>
+      </span>
+    </div>
+  </div>
+  <br>  
 </div>
