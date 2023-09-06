@@ -1,6 +1,6 @@
 <!-- Horizontal Navbar -->
 <div
-  class="justify-left relative flex h-[13%] w-full flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
+  class="justify-left relative z-10 flex h-[13%] w-full overflow-hidden flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
 >
   <button
     class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 max-h-fit min-h-fit w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md"
@@ -31,12 +31,13 @@
 
 <!-- Horizontal Content Navbar-->
 <div
-  [@slideInOut]="isContainerVisible ? 'visible' : 'hidden'"
-  class="mt-2 h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
+  class="relative mt-2 z-0 h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
   id="navbarCollapse"
   [ngClass]="{
     hidden: !isContainerVisible,
-    block: isContainerVisible
+    block: isContainerVisible,
+    animate__animated: true,
+    animate__fadeInDown: isContainerVisible
   }"
 >
   <div class="m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2">

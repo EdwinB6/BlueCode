@@ -27,7 +27,6 @@ export class AboutComponent {
     if (element) {
       const container = this.aboutContainer.nativeElement;
       const elementTop = element.offsetTop - container.offsetTop;
-      console.log(elementTop);
 
       container.scrollTo({
         top: elementTop,

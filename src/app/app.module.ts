@@ -31,7 +31,6 @@ import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule
   ],
