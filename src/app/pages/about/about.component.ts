@@ -20,7 +20,7 @@ export class AboutComponent {
     this.loaderService.showLoader();
     // Hide loader
     setTimeout(()=>{
-      this.loaderService.hideLoader(0);
+      this.loaderService.hideLoader();
       this.route.fragment.subscribe(fragment => {
         if (fragment) {
           setTimeout(() => this.scrollToFragment(fragment), 350);

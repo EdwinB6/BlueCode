@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     this.loaderService.showLoader();
     // Hide loader
     setTimeout(()=>{
-      this.loaderService.hideLoader(0);
+      this.loaderService.hideLoader();
     }, 2000)
     
   }
