@@ -1,11 +1,21 @@
-<div class="h-full w-full px-5" id="contact-us">
+<div
+  class="h-full w-full px-5"
+  id="contact-us"
+  *ngIf="!loaderService.isLoading"
+  [ngClass]="{
+    animate__animated: !loaderService.isLoading,
+    animate__fadeIn: !loaderService.isLoading
+  }"
+>
   <h2 class="p-5 text-center text-2xl font-semibold">Contact us</h2>
   <!-- Image at top content -->
   <div class="relative mx-auto mb-5 h-[20%] w-full">
     <img
-      src="assets/images/backgrounds/contact-us.jpg"
+      ngSrc="assets/images/backgrounds/contact-us.jpg"
       alt="contact-us"
       class="h-full w-full rounded-sm object-cover opacity-70 shadow-md"
+      fill
+      priority
     />
     <div class="absolute bottom-0 right-0 bg-opacity-70 p-2 text-white">
       <span class="text-xs italic opacity-70"
@@ -128,12 +138,14 @@
   </div>
   <!-- Image at the end of the content -->
   <div
-    class="relative mx-auto mt-5 flex h-[20%] w-full flex-col items-center justify-center"
+    class="relative mx-auto mt-5 flex h-[20%] w-full flex-col items-center justify-center overflow-auto"
   >
     <img
-      src="assets/images/backgrounds/contact-us.jpg"
+      ngSrc="assets/images/backgrounds/contact-us.jpg"
       alt="contact-us"
       class="h-full w-full rounded-sm object-cover opacity-70 shadow-md"
+      fill
+      priority
     />
     <div class="absolute bg-opacity-70 p-2 text-center text-white">
       <h3 class="mb-1 text-lg opacity-80">

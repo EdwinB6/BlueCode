@@ -1,14 +1,22 @@
-<div class="m-0 h-full py-5 px-5 w-full" id="home-content">
+<div
+  class="m-0 h-full w-full px-5 py-5"
+  id="home-content"
+  *ngIf="!loaderService.isLoading"
+  [ngClass]="{
+    animate__animated: !loaderService.isLoading,
+    animate__fadeIn: !loaderService.isLoading
+  }"
+>
   <div
     class="opacity-35 mb-3 flex h-[5%] w-full items-center justify-end text-sm font-bold italic"
   >
     <h1 class="pr-4">Blue Code - Moving ideas</h1>
   </div>
   <div
-    class="mx-auto h-[91%] w-full text-sm sm:text-base overflow-auto rounded-lg bg-slate-800 shadow-lg "
+    class="mx-auto h-[91%] w-full overflow-auto rounded-lg bg-slate-800 text-sm shadow-lg sm:text-base"
     id="console-home"
   >
-  <pre class="w-full pt-3 font-mono text-white">
+    <pre class="w-full pt-3 font-mono text-white">
   <span class="text-green-500">user@linux:</span><span class="text-blue-500">~$</span> <span class="cursor-blink">_</span> cat sum.py
   <span class="text-yellow-500">File content sum.py:</span>
   <code class="flex-1 text-gray-300 px-4">

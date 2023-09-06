@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgOptimizedImage } from '@angular/common'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { ButtonGridComponent } from './shared/components/button-grid/button-grid
 import { ButtonTableComponent } from './shared/components/button-table/button-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,15 @@ import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive
     ContactComponent,
     ButtonGridComponent,
     ButtonTableComponent,
-    CursorBlinkDirective
+    CursorBlinkDirective,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

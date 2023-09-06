@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoaderComponentService } from 'app/core/services/loader-component.service';
 
 @Component({
   selector: 'app-politics',
   templateUrl: './politics.component.html',
   styleUrls: ['./politics.component.css']
 })
-export class PoliticsComponent {
+export class PoliticsComponent implements OnInit {
   politics = [
     { title: 'Agile Development', description: 'An iterative approach to software development that emphasizes collaboration, flexibility, and customer satisfaction.', politicImg: 'assets/images/vectors/programming.svg' },
     { title: 'Data Protection', description: 'Safeguarding sensitive information from unauthorized access, disclosure, alteration, or destruction.', politicImg: 'assets/images/vectors/data.svg'},
@@ -19,5 +20,15 @@ export class PoliticsComponent {
     { title: 'Standards and Regulations', description: 'Compliance with industry standards and regulations, particularly in highly regulated sectors like healthcare or finance.', politicImg: 'assets/images/vectors/standars.svg' },
     { title: 'Customer Service', description: 'Providing excellent customer service by addressing inquiries, resolving issues, and ensuring customer satisfaction.', politicImg: 'assets/images/vectors/customer-attention.svg' }
   ];
+
+  constructor(public loaderService: LoaderComponentService) { }
   
+  ngOnInit(): void {
+    // Show loader
+    this.loaderService.showLoader();
+    // Hide loader
+    setTimeout(()=>{
+      this.loaderService.hideLoader(0);
+    }, 3000)
+  }
 }

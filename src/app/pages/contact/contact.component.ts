@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { LoaderComponentService } from 'app/core/services/loader-component.service';
 
 @Component({
   selector: 'app-contact',
@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
     {type: 'textarea', name: 'floating_message', placeholder: ' ', id: 'message', formControl: 'message', rows: '4', label: 'Message'}
   ];
   
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public loaderService: LoaderComponentService) {}
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
@@ -43,6 +43,13 @@ export class ContactComponent implements OnInit {
       availability: ['monday-friday'],
       priority: ['high']
     });
+
+    // Show loader
+    this.loaderService.showLoader();
+    // Hide loader
+    setTimeout(()=>{
+      this.loaderService.hideLoader(0);
+    }, 3000)
   }
 
   onSubmit(): void {

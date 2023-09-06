@@ -17,6 +17,8 @@ export class AppComponent {
     { link: 'our-services', label: 'Our services', section: undefined },
   ];
 
+  constructor() { }
+
   isMobileScreen: boolean = window.innerWidth < 640;
   isContainerVisible: boolean = false;
 
