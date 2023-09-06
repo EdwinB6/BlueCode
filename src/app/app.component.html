@@ -1,6 +1,6 @@
 <!-- Horizontal Navbar -->
 <div
-  class="justify-left relative flex h-[13%] w-full flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
+  class="justify-left relative z-10 flex h-[13%] w-full overflow-hidden flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
 >
   <button
     class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 max-h-fit min-h-fit w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md"
@@ -15,7 +15,7 @@
   <div
     class="mx-3 flex max-h-full min-h-fit items-center rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 shadow-md"
   >
-    <a href="/" class="block h-16 max-h-fit min-h-fit items-center px-2">
+    <a href="" class="block h-16 max-h-fit min-h-fit items-center px-2">
       <img
         src="assets/images/logos/blue_code_figure_white.png"
         alt="blue-code-logo"
@@ -31,21 +31,23 @@
 
 <!-- Horizontal Content Navbar-->
 <div
-  [@slideInOut]="isContainerVisible ? 'visible' : 'hidden'"
-  class="mt-2 h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
+  class="relative mt-2 z-0 max-h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
   id="navbarCollapse"
   [ngClass]="{
+    'animate__animated': isContainerVisible,
+    'animate__slideInDown': isContainerVisible,
     hidden: !isContainerVisible,
-    block: isContainerVisible
+    relative: isContainerVisible
   }"
 >
-  <div class="m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2">
+  <div class="m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2 relative">
     <app-button-grid
       *ngFor="let button of navigationButtons"
       [button]="button"
     ></app-button-grid>
   </div>
 </div>
+
 
 <!-- Main container -->
 <div class="flex h-[85%] gap-3 text-cyan-50">
@@ -74,6 +76,7 @@
   >
     <!-- Pages content -->
     <div class="relative h-full w-full overflow-hidden overflow-y-auto">
+      <app-spinner></app-spinner>
       <router-outlet></router-outlet>
     </div>
   </div>

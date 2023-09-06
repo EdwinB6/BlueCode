@@ -5,7 +5,6 @@
     "baseUrl": "./src",
     "paths": {
       "@models/*": ["app/models/*"],
-      "@animations/*": ["app/animations/*"],
       "@directives/*": ["app/directives/*"]
     },
     "outDir": "./dist/out-tsc",

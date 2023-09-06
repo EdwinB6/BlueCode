@@ -1,11 +1,9 @@
 import { Component, HostListener } from '@angular/core';
-import { SlideInOutAnimation } from '@animations/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [SlideInOutAnimation],
 })
 export class AppComponent {
   title: string = 'BlueCode';
@@ -18,6 +16,8 @@ export class AppComponent {
     { link: 'contact', label: 'Contact us', section: undefined },
     { link: 'our-services', label: 'Our services', section: undefined },
   ];
+
+  constructor() { }
 
   isMobileScreen: boolean = window.innerWidth < 640;
   isContainerVisible: boolean = false;
