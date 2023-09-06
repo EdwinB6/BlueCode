@@ -1,6 +1,6 @@
 <!-- Horizontal Navbar -->
 <div
-  class="justify-left relative z-10 flex h-[13%] w-full overflow-hidden flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
+  class="justify-left relative z-10 flex h-[13%] w-full flex-1 items-center overflow-hidden border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
 >
   <button
     class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 max-h-fit min-h-fit w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md"
@@ -31,23 +31,22 @@
 
 <!-- Horizontal Content Navbar-->
 <div
-  class="relative mt-2 z-0 max-h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
+  class="relative z-0 mt-2 max-h-[28%] w-full items-center overflow-auto rounded-lg border border-slate-800 bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 shadow-md"
   id="navbarCollapse"
   [ngClass]="{
-    'animate__animated': isContainerVisible,
-    'animate__slideInDown': isContainerVisible,
+    animate__animated: isContainerVisible,
+    animate__slideInDown: isContainerVisible,
     hidden: !isContainerVisible,
     relative: isContainerVisible
   }"
 >
-  <div class="m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2 relative">
+  <div class="relative m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2">
     <app-button-grid
       *ngFor="let button of navigationButtons"
       [button]="button"
     ></app-button-grid>
   </div>
 </div>
-
 
 <!-- Main container -->
 <div class="flex h-[85%] gap-3 text-cyan-50">
@@ -76,7 +75,14 @@
   >
     <!-- Pages content -->
     <div class="relative h-full w-full overflow-hidden overflow-y-auto">
-      <app-spinner></app-spinner>
+      <div
+        class="absolute inset-0 z-50 flex items-center justify-center bg-opacity-70"
+        *ngIf="loaderService.isLoading"
+      >
+        <div
+          class="h-12 w-12 animate-spin rounded-full border-t-4 border-slate-600"
+        ></div>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -8,7 +8,7 @@ import { delay } from 'rxjs/operators';
 export class LoaderComponentService {
   private isLoadingSubject = new Subject<boolean>();
   isLoading$ = this.isLoadingSubject.asObservable();
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   showLoader(): void {
     this.isLoadingSubject.next(true);
