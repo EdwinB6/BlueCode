@@ -14,7 +14,6 @@ import { ButtonGridComponent } from './shared/components/button-grid/button-grid
 import { ButtonTableComponent } from './shared/components/button-table/button-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive';
-import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
     ButtonGridComponent,
     ButtonTableComponent,
     CursorBlinkDirective,
-    SpinnerComponent
   ],
   imports: [
     BrowserModule,

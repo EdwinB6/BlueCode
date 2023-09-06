@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { LoaderComponentService } from './core/services/loader-component.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
     { link: 'our-services', label: 'Our services', section: undefined },
   ];
 
-  constructor() { }
+  constructor(public loaderService: LoaderComponentService) { }
 
   isMobileScreen: boolean = window.innerWidth < 640;
   isContainerVisible: boolean = false;
