@@ -43,13 +43,10 @@ export class ContactComponent implements OnInit {
       availability: ['monday-friday'],
       priority: ['high']
     });
-
-    // Show loader
-    this.loaderService.showLoader();
-    // Hide loader
-    setTimeout(()=>{
-      this.loaderService.hideLoader();
-    }, 3000)
+    
+    this.loaderService.runLoader(3000, () => {
+      console.log('Loading contact...');
+    });
   }
 
   onSubmit(): void {

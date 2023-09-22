@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject, timer } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +7,25 @@ export class LoaderComponentService {
   isLoading: boolean = true;
 
   showLoader(): void {
-    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = true;
+    }, 0);
   }
 
   hideLoader(): void {
-    this.isLoading = false;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 0);
+  }
+
+  runLoader(time: number, callback: Function): void {
+    this.showLoader();
+
+    setTimeout(() => {
+      this.hideLoader();
+      if (callback) {
+        callback();
+      }
+    }, time);
   }
 }

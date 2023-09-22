@@ -5,28 +5,24 @@ import { LoaderComponentService } from 'app/core/services/loader-component.servi
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.css'],
 })
 export class AboutComponent {
   @ViewChild('aboutContainer') aboutContainer!: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
-    public loaderService: LoaderComponentService
+    public loaderService: LoaderComponentService,
   ) {}
 
   ngOnInit(): void {
-    // Show loader
-    this.loaderService.showLoader();
-    // Hide loader
-    setTimeout(()=>{
-      this.loaderService.hideLoader();
-      this.route.fragment.subscribe(fragment => {
+    this.loaderService.runLoader(2000, () => {
+      this.route.fragment.subscribe((fragment) => {
         if (fragment) {
           setTimeout(() => this.scrollToFragment(fragment), 350);
         }
       });
-    }, 2000)
+    });
   }
 
   scrollToFragment(fragment: string): void {
@@ -37,7 +33,7 @@ export class AboutComponent {
 
       container.scrollTo({
         top: elementTop,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }

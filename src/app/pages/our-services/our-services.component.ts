@@ -37,14 +37,11 @@ export class OurServicesComponent implements OnInit {
     },
   ];
 
-  constructor(public loaderService: LoaderComponentService) { }
+  constructor(public loaderService: LoaderComponentService) {}
 
   ngOnInit(): void {
-    // Show loader
-    this.loaderService.showLoader();
-    // Hide loader
-    setTimeout(()=>{
-      this.loaderService.hideLoader();
-    }, 3000)
+    this.loaderService.runLoader(3000, () => {
+      console.log('Loading services...');
+    });
   }
 }

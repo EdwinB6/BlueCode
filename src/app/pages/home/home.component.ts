@@ -10,12 +10,8 @@ export class HomeComponent implements OnInit {
   constructor(public loaderService: LoaderComponentService) { }
 
   ngOnInit(): void {
-    // Show loader
-    this.loaderService.showLoader();
-    // Hide loader
-    setTimeout(()=>{
-      this.loaderService.hideLoader();
-    }, 2000)
-    
+    this.loaderService.runLoader(2000, () => {
+      console.log('Loading home...');
+    })
   }
 }
