@@ -4,7 +4,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { LoaderComponentService } from 'app/core/services/loader-component.service';
+import { LoaderComponentService } from '@services/loader-component.service';
 
 @Component({
   selector: 'app-contact',

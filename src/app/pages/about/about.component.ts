@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoaderComponentService } from 'app/core/services/loader-component.service';
+import { LoaderComponentService } from '@services/loader-component.service';
 
 @Component({
   selector: 'app-about',

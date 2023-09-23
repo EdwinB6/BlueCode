@@ -4,8 +4,9 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@models/*": ["app/models/*"],
-      "@directives/*": ["app/directives/*"]
+      "@models/*": ["app/core/models/*"],
+      "@directives/*": ["app/shared/directives/*"],
+      "@services/*": ["app/core/services/*"],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

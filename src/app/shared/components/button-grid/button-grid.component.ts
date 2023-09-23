@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Button } from 'app/core/models/button.model';
+import { Button } from '@models/button.model';
 
 @Component({
   selector: 'app-button-grid',
