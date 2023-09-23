@@ -21,6 +21,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
+import { FooterComponent } from './core/components/footer/footer.component';
+import { NavbarVerticalComponent } from './core/components/navbar-vertical/navbar-vertical.component';
+import { NavbarHorizontalComponent } from './core/components/navbar-horizontal/navbar-horizontal.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { RegisterComponent } from './modules/register/register.component';
     CursorBlinkDirective,
     LoginComponent,
     RegisterComponent,
+    FooterComponent,
+    NavbarVerticalComponent,
+    NavbarHorizontalComponent,
   ],
   imports: [
     BrowserModule,

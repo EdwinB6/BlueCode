@@ -1,6 +1,6 @@
 <!-- Horizontal Navbar -->
 <div
-  class="justify-left relative z-10 flex h-[13%] w-full flex-1 items-center overflow-hidden border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
+  class="justify-left relative z-10 flex h-[13%] w-full flex-1 items-center border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 shadow-md"
 >
   <button
     class="toggle-button absolute right-0 top-1/2 mx-5 ml-4 max-h-fit min-h-fit w-10 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md"
@@ -27,6 +27,38 @@
       Blue Code
     </h1>
   </div>
+
+  <!-- User menu button -->
+  <div
+    class="absolute right-16 top-1/2 mx-2 -translate-y-1/2 transform rounded-lg bg-slate-700 p-2 text-base text-white opacity-100 shadow-md sm:right-2"
+    (mouseenter)="onMouseEnter()"
+    id="user-menu"
+  >
+    <button class="flex items-center" (click)="toggleDropdown()">
+      <img
+        src="assets/images/logos/avatar.svg"
+        alt="avatar"
+        class="h-6 w-6 object-cover opacity-30"
+      />
+    </button>
+
+    <div
+      *ngIf="isDropdownVisible"
+      class="absolute right-0 z-50 mt-4 w-48 rounded-lg border border-slate-700 bg-slate-700 text-sm text-white shadow-lg"
+      (mouseleave)="onMouseLeave()"
+    >
+      <a
+        [routerLink]="'login'"
+        class="block px-4 py-2 hover:bg-slate-400 hover:text-slate-800 opacity-50"
+        >Sign in</a
+      >
+      <a
+        [routerLink]="'register'"
+        class="block px-4 py-2 hover:bg-slate-400 hover:text-slate-800 opacity-50"
+        >Register</a
+      >
+    </div>
+  </div>
 </div>
 
 <!-- Horizontal Content Navbar-->
@@ -40,12 +72,7 @@
     relative: isContainerVisible
   }"
 >
-  <div class="relative m-2 mx-0 grid w-full grid-cols-3 justify-center gap-2">
-    <app-button-grid
-      *ngFor="let button of navigationButtons"
-      [button]="button"
-    ></app-button-grid>
-  </div>
+  <app-navbar-horizontal></app-navbar-horizontal>
 </div>
 
 <!-- Main container -->
@@ -54,21 +81,7 @@
   <div
     class="content relative top-0 mt-3 hidden w-1/4 overflow-y-auto rounded-r-lg border border-slate-800 shadow-lg sm:block"
   >
-    <table class="mx-auto my-3 w-full min-w-fit table-auto text-center">
-      <tbody>
-        <tr *ngFor="let button of navigationButtons" class="w-full">
-          <td class="w-full">
-            <app-button-table [button]="button"></app-button-table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div
-      class="sticky bottom-0 top-full w-full border border-slate-800 bg-slate-800 p-2 text-center text-sm font-light italic shadow-md"
-    >
-      <p>In development by</p>
-      <a href="https://github.com/EdwinB5">@EdwinB5</a>
-    </div>
+    <app-navbar-vertical></app-navbar-vertical>
   </div>
   <div
     class="mt-3 flex w-full flex-1 overflow-hidden rounded-l-lg border border-slate-800 shadow-lg"
@@ -76,7 +89,7 @@
     <!-- Pages content -->
     <div class="relative h-full w-full overflow-hidden overflow-y-auto">
       <div
-        class="absolute inset-0 z-50 flex items-center justify-center bg-opacity-70"
+        class="absolute inset-0 flex items-center justify-center bg-opacity-70"
         *ngIf="loaderService.isLoading"
       >
         <div
@@ -89,42 +102,4 @@
 </div>
 
 <!-- Footer -->
-<footer id="footer" class="mt-3">
-  <div
-    class="flex h-20 w-full items-center justify-center rounded-t-lg border border-slate-800 bg-gradient-to-l from-slate-800 to-slate-700 text-white"
-  >
-    <button
-      class="h-12 w-60 rounded-lg bg-slate-800 text-white opacity-60 shadow-md hover:opacity-90 focus:outline-none"
-    >
-      Work with us
-    </button>
-  </div>
-
-  <div
-    class="flex flex-col items-center justify-between bg-slate-800 p-4 text-center text-sm font-semibold text-white opacity-80 shadow-md md:flex-row"
-  >
-    <div>
-      <p class="mb-2">
-        &copy; 2023 Copyright -
-        <a href="#" class="text-blue-500 hover:underline">Blue Code</a>
-      </p>
-      <p class="text-sm italic opacity-70">
-        By Edwin Becerra & Sebastián Padilla
-      </p>
-    </div>
-    <div class="mt-4 md:mt-0">
-      <a [routerLink]="'about'" data-content="about" class="load-button mr-4 hover:underline"
-        >About us</a
-      >
-      <a
-        [routerLink]="'our-services'"
-        data-content="our-services"
-        class="load-button mr-4 hover:underline"
-        >Our services</a
-      >
-      <a [routerLink]="'contact'" data-content="contact" class="load-button hover:underline"
-        >Contact us</a
-      >
-    </div>
-  </div>
-</footer>
+<app-footer></app-footer>
