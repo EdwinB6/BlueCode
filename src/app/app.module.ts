@@ -1,19 +1,26 @@
+import { NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgOptimizedImage } from '@angular/common'
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { PoliticsComponent } from './pages/politics/politics.component';
-import { OurServicesComponent } from './pages/our-services/our-services.component';
-import { CustomErrorComponent } from './pages/custom-error/custom-error.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './modules/about/about.component';
+import { ContactComponent } from './modules/contact/contact.component';
+import { CustomErrorComponent } from './modules/custom-error/custom-error.component';
+import { HomeComponent } from './modules/home/home.component';
+import { OurServicesComponent } from './modules/our-services/our-services.component';
+import { PoliticsComponent } from './modules/politics/politics.component';
 import { ButtonGridComponent } from './shared/components/button-grid/button-grid.component';
 import { ButtonTableComponent } from './shared/components/button-table/button-table.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+import { environment } from '../environments/environment';
+import { LoginComponent } from './modules/login/login.component';
+import { RegisterComponent } from './modules/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +34,19 @@ import { CursorBlinkDirective } from './shared/directives/cursor-blink.directive
     ButtonGridComponent,
     ButtonTableComponent,
     CursorBlinkDirective,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
