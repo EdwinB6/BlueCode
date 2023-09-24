@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { LoaderComponentService } from './core/services/loader-component.service';
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
 
   constructor(
     public loaderService: LoaderComponentService,
-    private element: ElementRef,
+    public authService: AuthService
   ) {}
 
   isMobileScreen: boolean = window.innerWidth < 640;

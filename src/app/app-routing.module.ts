@@ -7,8 +7,8 @@ import { PoliticsComponent } from './modules/politics/politics.component';
 import { OurServicesComponent } from './modules/our-services/our-services.component';
 import { CustomErrorComponent } from './modules/custom-error/custom-error.component';
 import { ContactComponent } from './modules/contact/contact.component';
-import { LoginComponent } from './modules/login/login.component';
-import { RegisterComponent } from './modules/register/register.component';
+import { SignInComponent } from './modules/sign-in/sign-in.component';
+import { SignUpComponent } from './modules/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'politics', component: PoliticsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'our-services', component: OurServicesComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: '**', component: CustomErrorComponent },
 ];
 
