@@ -31,30 +31,31 @@ export class AuthService {
     });
   }
 
-  SetUserData(user: any) {
+  setUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
+      `users/${user.uid}`,
     );
     const userData: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
+      role: user.role || 'default',
     };
+    console.log(userData);
     return userRef.set(userData, {
       merge: true,
     });
   }
 
-  SignIn(email: string, password: string) {
+  signIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result: { user: any }) => {
-        this.SetUserData(result.user);
+        this.setUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['/']);
-            console.log(user);
+            this.router.navigate(['/dashboard']);
           }
         });
       })
@@ -63,7 +64,7 @@ export class AuthService {
       });
   }
 
-  SignOut() {
+  signOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['/sign-in']);
@@ -75,11 +76,21 @@ export class AuthService {
     return user != null;
   }
 
-  SignUp(email: string, password: string) {
+  get userRole(): string {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    return user.role || '';
+  }
+
+  signUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData;
+        this.setUserData;
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['/dashboard']);
+          }
+        });
       })
       .catch((error) => {
         window.alert(error.message);
