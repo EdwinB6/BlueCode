@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -6,6 +6,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { User } from '@models/user.model';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,22 +18,26 @@ export class AuthService {
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone,
+    public alert: AlertService,
   ) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
+        const userRef = this.afs.collection('users').doc<User>(user.uid);
+        userRef.get().subscribe((doc) => {
+          if (doc.exists) {
+            this.userData = doc.data() as User;
+          }
+          localStorage.setItem('user', JSON.stringify(this.userData));
+        });
       } else {
+        this.userData = null;
         localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
       }
     });
   }
 
   setUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`,
     );
     const userData: User = {
@@ -40,9 +45,9 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      role: user.role || 'default',
+      role: user.role,
     };
-    console.log(userData);
+
     return userRef.set(userData, {
       merge: true,
     });
@@ -52,7 +57,6 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result: { user: any }) => {
-        this.setUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['/dashboard']);
@@ -60,7 +64,7 @@ export class AuthService {
         });
       })
       .catch((error: { message: any }) => {
-        window.alert(error.message);
+        this.alert.showErrorAlert('Error sign in', error.message);
       });
   }
 
@@ -81,19 +85,45 @@ export class AuthService {
     return user.role || '';
   }
 
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, username: string, role: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        this.setUserData(result.user);
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            this.router.navigate(['/dashboard']);
-          }
-        });
+        const user = result.user;
+        if (user) {
+          this.setUserData({
+            uid: user.uid,
+            email: email,
+            displayName: username,
+            photoURL: '',
+            role: role || 'default',
+          });
+
+          user.updateProfile({
+            displayName: username,
+            photoURL: '',
+          });
+
+          this.afAuth.authState.subscribe((user) => {
+            if (user) {
+              this.router.navigate(['/dashboard']);
+            }
+          });
+        } else {
+          this.alert.showErrorAlert('Error sign up', 'Null user');
+        }
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.alert.showErrorAlert('Error sign up', error.message);
       });
+  }
+
+  deleteUser() {
+    return this.afAuth.currentUser.then((user) => {
+      if (user) {
+        return user.delete();
+      }
+      throw new Error('No se ha encontrado un usuario autenticado.');
+    });
   }
 }
